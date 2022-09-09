@@ -22,18 +22,22 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install fonttools
-        python -m pip install notofonttools
         python -m pip install Pillow
-        python -m pip install nanoemoji
         sudo apt-get update
         sudo apt-get install --yes zopfli pngquant
+        cd tools && \
+        python -m venv venv && \
+        source venv/bin/activate && \
+        pip install -U pip && \
+        pip install -r requirements.txt
 
     - name: Prepare assets
       run: python ./fluent_emoji.py
+      
     - name: Build Fluent emoji font
       working-directory: tools
       run: |
+        source venv/bin/activate && \
         make -j
       # make install
     - name: Archive build artifacts

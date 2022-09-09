@@ -2,6 +2,6 @@
 __pycache__/
 *.pyc
 waveflag
-build/
-venv/
+tools/build/
+tools/venv/
 tools/png/
