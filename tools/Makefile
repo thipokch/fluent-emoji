@@ -210,7 +210,8 @@ $(EMOJI_WINDOWS).tmpl.ttx: $(EMOJI).tmpl.ttx.tmpl $(ADD_GLYPHS) $(ALL_COMPRESSED
 	@rm -f "$@"
 	ttx "$<"
 
-$(EMOJI).ttf: check_sequence $(EMOJI).tmpl.ttf $(EMOJI_BUILDER) $(PUA_ADDER) \
+# $(EMOJI).ttf: check_sequence $(EMOJI).tmpl.ttf $(EMOJI_BUILDER) $(PUA_ADDER)
+$(EMOJI).ttf: $(EMOJI).tmpl.ttf $(EMOJI_BUILDER) $(PUA_ADDER) \
 	$(ALL_COMPRESSED_FILES) | check_tools
 
 	@$(PYTHON) $(EMOJI_BUILDER) $(SMALL_METRICS) -V $(word 2,$^) "$@" "$(COMPRESSED_DIR)/emoji_u"
@@ -219,7 +220,8 @@ $(EMOJI).ttf: check_sequence $(EMOJI).tmpl.ttf $(EMOJI_BUILDER) $(PUA_ADDER) \
 	@mv "$@-with-pua-varsel" "$@"
 	@rm "$@-with-pua"
 
-$(EMOJI_WINDOWS).ttf: check_sequence $(EMOJI_WINDOWS).tmpl.ttf $(EMOJI_BUILDER) $(PUA_ADDER) \
+#  $(EMOJI_WINDOWS).ttf: check_sequence $(EMOJI_WINDOWS).tmpl.ttf $(EMOJI_BUILDER) $(PUA_ADDER) 
+$(EMOJI_WINDOWS).ttf: $(EMOJI_WINDOWS).tmpl.ttf $(EMOJI_BUILDER) $(PUA_ADDER) \
 	$(ALL_COMPRESSED_FILES) | check_tools
 
 	@$(PYTHON) $(EMOJI_BUILDER) -O $(SMALL_METRICS) -V $(word 2,$^) "$@" "$(COMPRESSED_DIR)/emoji_u"
@@ -229,12 +231,12 @@ $(EMOJI_WINDOWS).ttf: check_sequence $(EMOJI_WINDOWS).tmpl.ttf $(EMOJI_BUILDER) 
 	@rm "$@-with-pua"
 
 
-check_sequence:
-ifdef BYPASS_SEQUENCE_CHECK
-	@echo Bypassing the emoji sequence checks
-else
-	@$(PYTHON) $(SEQUENCE_CHECK_PY) -n $(ALL_NAMES) -c
-endif
+# check_sequence:
+# ifdef BYPASS_SEQUENCE_CHECK
+# 	@echo Bypassing the emoji sequence checks
+# else
+# 	@$(PYTHON) $(SEQUENCE_CHECK_PY) -n $(ALL_NAMES) -c
+# endif
 
 clean:
 	rm -f $(EMOJI).ttf $(EMOJI_WINDOWS).ttf $(EMOJI).tmpl.ttf $(EMOJI_WINDOWS).tmpl.ttf $(EMOJI).tmpl.ttx $(EMOJI_WINDOWS).tmpl.ttx
