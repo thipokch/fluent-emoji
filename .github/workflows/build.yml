@@ -1,0 +1,41 @@
+name: Build Fluent Emoji font
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install fonttools
+        python -m pip install notofonttools
+        sudo apt-get update
+        sudo apt-get install --yes zopfli pngquant
+
+    - name: Prepare assets
+      run: python ./fluent_emoji.py
+    - name: Build Fluent emoji font
+      working-directory: tools
+      run: |
+        make -j
+      # make install
+    - name: Archive build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: fluent-emoji-font
+        path: tools/FluentEmoji.ttf
