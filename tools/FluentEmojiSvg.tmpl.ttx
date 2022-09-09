@@ -130,31 +130,31 @@
 
   <name>
     <namerecord nameID="0" platformID="3" platEncID="1" langID="0x409">
-      Copyright 2015 Google Inc.
+      Copyright (c) Microsoft Corporation.
     </namerecord>
     <namerecord nameID="1" platformID="3" platEncID="1" langID="0x409">
-      Noto Color Emoji SVG
+      Fluent Emoji
     </namerecord>
     <namerecord nameID="2" platformID="3" platEncID="1" langID="0x409">
       Regular
     </namerecord>
     <namerecord nameID="3" platformID="3" platEncID="1" langID="0x409">
-      Noto Color Emoji SVG
+      Fluent Emoji
     </namerecord>
     <namerecord nameID="4" platformID="3" platEncID="1" langID="0x409">
-      Noto Color Emoji SVG
+      Fluent Emoji
     </namerecord>
     <namerecord nameID="5" platformID="3" platEncID="1" langID="0x409">
       Version 1.22
     </namerecord>
     <namerecord nameID="6" platformID="3" platEncID="1" langID="0x409">
-      NotoColorEmojiSVG
+      FluentEmojiSVG
     </namerecord>
     <namerecord nameID="7" platformID="3" platEncID="1" langID="0x409">
-      Noto is a trademark of Google Inc. and may be registered in certain jurisdictions.
+      Microsoft is a trademark of  Microsoft Corporation., registered in the U.S. and other countries.
     </namerecord>
     <namerecord nameID="11" platformID="3" platEncID="1" langID="0x409">
-      http://code.google.com/p/noto/
+      https://developer.microsoft.com/
     </namerecord>
     <namerecord nameID="13" platformID="3" platEncID="1" langID="0x409">
       This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.

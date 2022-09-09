@@ -18,11 +18,13 @@
 
 __author__ = "roozbeh@google.com (Roozbeh Pournader)"
 
+
 import sys
 
 from fontTools import agl
-from fontTools.ttLib.tables import otTables
 from fontTools import ttLib
+from fontTools.ttLib.tables import otTables
+
 from nototools import font_data
 
 
@@ -140,7 +142,7 @@ def create_simple_gsub(lookups, script='DFLT', feature='ccmp'):
 
 
 def reg_indicator(letter):
-    """Return a regional indicator character from corresponding capital letter.
+    """Return a regional indicator charater from corresponing capital letter.
     """
     return 0x1F1E6 + ord(letter) - ord('A')
 

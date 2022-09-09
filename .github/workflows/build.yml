@@ -23,13 +23,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install Pillow
+        python -m pip install fonttools
+        python -m pip install notofonttools
         sudo apt-get update
-        sudo apt-get install --yes zopfli pngquant
-        cd tools && \
-        python -m venv venv && \
-        source venv/bin/activate && \
-        pip install -U pip && \
-        pip install -r requirements.txt
+        sudo apt-get install --yes optipng zopfli pngquant
 
     - name: Prepare assets
       run: python ./fluent_emoji.py
@@ -37,9 +34,9 @@ jobs:
     - name: Build Fluent emoji font
       working-directory: tools
       run: |
-        source venv/bin/activate && \
         make -j
-      # make install
+        make install
+        
     - name: Archive build artifacts
       uses: actions/upload-artifact@v2
       with:
